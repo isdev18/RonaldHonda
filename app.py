@@ -213,6 +213,12 @@ def deletar_moto(id):
         return jsonify({'erro': 'Moto não encontrada'}), 404
 
 
+@app.route('/health', methods=['GET'])
+def health():
+    """Health endpoint for container orchestration and monitoring."""
+    return jsonify({'status': 'ok'})
+
+
 if __name__ == '__main__':
     init_db()  # Inicializa/atualiza estrutura do banco
     port = int(os.environ.get('PORT', 5000))
